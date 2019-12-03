@@ -1,0 +1,479 @@
+/*font type for all the texts */
+*{
+    font-family: "sofia-pro","Roboto","Helvetica","Arial",sans-serif;
+}
+
+/*getting rid of shadows when input and select are focused*/
+input, select:focus{
+    outline: 0;
+}
+
+/*centering the form*/
+.create_body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*width of the form*/
+.create_form{
+    width: 489px;
+}
+
+/*title of each section*/
+.create_section{
+    font-size: 26px;
+    color: rgb(50, 50, 50);
+    font-weight: 700;
+    margin-top: 50px;
+    margin-bottom: 3px;
+}
+
+
+
+/*メモらん*/
+#what{
+    display: block;
+    box-sizing: border-box;
+    width: 489px;
+    height: 45px;
+    font-size: 16px;
+    border: 2px solid rgb(0, 153, 255);
+    color: rgb(0, 153, 255);
+}
+
+/*basic design for deadline select*/
+.deadline{
+    height: 45px;
+    width: 200px;
+    color: rgb(0, 153, 255);
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 0;
+    border: 2px solid #0099ff;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -o-border-radius: 0;
+    font-size: 16px;
+}
+
+/*deleting inner spin button for deadline*/
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+
+
+/*ラジオボタンを非表示にする*/
+input[type=radio]{
+    display: none;
+}
+
+/*designing priority labels*/
+.priority_label{
+    display: inline-block;
+    height: 45px;
+    width: 150px;
+    background-color: rgb(124, 124, 124);
+    color: #fff;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    text-align: center;
+    margin: 0 4px 0;
+    line-height: 45px;
+}
+
+/*when selected or hovered, priority label will have color*/
+input[type=radio]:checked + .high{
+    background-color: #ff445d;
+}
+
+input[type=radio]:checked + .middle{
+    background-color: #ffab4a;
+}
+
+input[type=radio]:checked + .low{
+    background-color: #46f746;
+}
+
+input[type=radio]:hover + .high{
+    background-color: rgb(255, 68, 93);
+}
+
+input[type=radio]:hover + .middle{
+    background-color: rgb(255, 171, 74);
+}
+
+input[type=radio]:hover + .low{
+    background-color: rgb(70, 247, 70);
+}
+
+/*when selected or hovered, genre label will have color*/
+input[type=radio]:checked + .work{
+    background-color: rgb(255, 68, 93);
+}
+
+input[type=radio]:checked + .private{
+    background-color: rgb(255, 171, 74);
+}
+
+input[type=radio]:checked + .others{
+    background-color: rgb(70, 247, 70);
+}
+
+input[type=radio]:hover + .work{
+    background-color: rgb(255, 68, 93);
+}
+
+input[type=radio]:hover + .private{
+    background-color: rgb(255, 171, 74);
+}
+
+input[type=radio]:hover + .others{
+    background-color: rgb(70, 247, 70);
+}
+
+/*submit button*/
+#create_add {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    background: linear-gradient(to left, #850aff 50%, #fff 50%);
+    background-size: 200% 100%;
+    background-position: left bottom;
+    width: 150px;
+    height: 44px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 22px;
+    -webkit-border-radius: 22px;
+    -moz-border-radius: 22px;
+    -o-border-radius: 22px;
+    border: 2px solid #850aff;
+    
+}
+
+/*hovered, background color changes from right to left*/
+#create_add:hover{
+    transition:all .2s linear;
+    background-position: left bottom;
+    color: #850aff;
+}
+
+/*when cursor is out of add button, background color changes back*/
+#create_add:not(:hover){
+    transition:all .2s linear;
+    background-position: right bottom;
+}
+
+
+
+/*note.php*/
+
+
+/*genre container*/
+#genre_container{
+    width: 500px;
+    margin: 100px auto 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+/*each genre*/
+.each_genre{
+    display: inline-block;
+    width: 150px;
+    height: 45px;
+    color: rgb(66, 66, 66);
+    background-color: #fff;
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 45px;
+    transition:all .5s linear;
+    cursor: pointer;
+}
+
+.each_genre:hover{
+    text-decoration: none;
+    color: rgb(66, 66, 66);
+}
+
+/*each genre's default border color, by default work is highlighted*/
+.genre_work{
+    border-bottom: 4px solid #8d12ff;
+}
+
+.genre_private{
+    border-bottom: 4px solid #ddb8ff;
+}
+
+.genre_others{
+    border-bottom: 4px solid rgb(221, 184, 255);
+}
+
+
+
+
+/*plus minus container*/
+#plus_minus_container{
+    width: 500px;
+    margin: 0 auto 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/*designing minus and plus marks*/
+
+#minus_wrapper{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -o-border-radius: 15px;
+    position: relative;
+    text-decoration: none;
+    line-height: 30px;
+}
+
+#plus_wrapper{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+#minus_wrapper img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -o-border-radius: 15px;
+    transition:all .2s linear;
+}
+
+#plus_wrapper img{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+/*form */
+.note_form{
+    width: 500px;
+    margin: 0 auto auto;
+}
+
+/* Done button */
+#back{
+    display: block;
+    position: absolute;
+    width: 180%;
+    height: 100%;
+    text-align: center;
+    background-color: rgb(255, 68, 93);
+    color: #fff;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    display: none;
+    transition:all .2s linear;
+}
+
+
+/*table container*/
+.table_container{
+    width: 500px;
+    margin: 0 auto auto;
+    position: relative;
+    overflow: hidden;
+}
+
+/*table wrap*/
+.table_wrap{
+    position: absolute;
+}
+
+/*table*/
+
+
+#table_work{
+    width: 500px;
+    position: absolute;
+}
+
+#table_private{
+    width: 500px;
+    position: absolute;
+    left: 500px;
+}
+
+#table_others{
+    width: 500px;
+    position: absolute;
+    left: 1000px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 7px;
+    width: 500px;
+  }
+
+td{
+    border-bottom: 1px solid rgb(209, 208, 208);
+}
+
+tr{
+    height: 50px;
+}
+
+/*normally delete button is hidden*/
+.table_delete{
+    display: none;
+    transition:all .2s linear;
+}
+
+
+
+/*what part*/
+.table_what{
+    width: 350px;
+    transition:all .2s linear;
+}
+
+/*deadline part*/
+.table_deadline{
+    width: 75px;
+    text-align: center;
+    border-left: none;
+    position: relative;
+}
+
+.deadline_form{
+    display: none;
+}
+
+.deadline_date{
+    display: none;
+    width: 75px;
+    height: 25px;
+    font-size: 9px;
+}
+
+.deadline_submit{
+    display: none;
+    width: 50px;
+    height: 25px;
+    box-sizing: border-box;
+    color: #fff;
+    background-color: rgb(42, 141, 255);
+    border: none;
+}
+
+.dl_btn{
+    display: none;
+    width: 25px;
+    height: 25px;
+    box-sizing: border-box;
+    color: #fff;
+    background-color: rgb(255, 24, 236);
+    border: none;
+}
+
+/*priority part*/
+.table_priority{
+    width: 75px;
+    text-align: center;
+    border-left: none;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    position: relative;
+}
+
+.pri_form{
+    display: none;
+}
+
+.pri_change{
+    display: none;
+    width: 75px;
+    height: 25px;
+    font-size: 9px;
+}
+
+.pri_submit{
+    display: none;
+    width: 50px;
+    height: 25px;
+    box-sizing: border-box;
+    color: #fff;
+    background-color: rgb(42, 141, 255);
+    border: none;
+}
+
+.pri_btn{
+    display: none;
+    width: 25px;
+    height: 25px;
+    box-sizing: border-box;
+    color: #fff;
+    background-color: rgb(255, 24, 236);
+    border: none;
+}
+
+/*dropdown for priority*/
+.slct{
+    display: none;
+}
+
+/*gauge*/
+.gauge{
+    display: inline-block;
+    width: 90%;
+    height: 10px;
+    background: linear-gradient(to right, rgb(0, 238, 255) 50%, rgb(69, 66, 94) 50%);
+    background-size: 200% 100%;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+}
+
+/*delete button*/
+.delete_selected{
+    display: inline-block;
+    width: 70px;
+    height: 30px;
+    text-align: center;
+    font-size: 16px;
+    background-color: #fff;
+    color: rgb(255, 68, 93);
+    border: 2px solid rgb(255, 68, 93);
+    display: none;
+    transition:all .2s linear;
+}
+
